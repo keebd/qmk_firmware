@@ -27,12 +27,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PRODUCT         Tree
 
 /* Key matrix size */
-#define MATRIX_ROWS 2
-#define MATRIX_COLS 1
+#define MATRIX_ROWS 1
+#define MATRIX_COLS 2
 
 /* Key matrix pins */
-#define MATRIX_ROW_PINS { D0, D4 }
-#define MATRIX_COL_PINS { C6 }
+#define MATRIX_ROW_PINS { D0 }
+#define MATRIX_COL_PINS { D1, D4 }
 #define UNUSED_PINS
 
 /* COL2ROW, ROW2COL */
