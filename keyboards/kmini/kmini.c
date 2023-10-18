@@ -13,7 +13,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#include "kmini.h"
+#include "quantum.h"
 
 void led_init_ports(void) {
     DDRB |= (1<<1); // OUT
@@ -26,7 +26,3 @@ void led_init_ports(void) {
  * Side1: Low B3
  * Side2: Low B2
  */
-void led_set_kb(uint8_t usb_led) {
-    led_set_user(usb_led);
-}
-

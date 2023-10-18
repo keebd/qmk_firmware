@@ -19,6 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #pragma once
 
 // mouse config
+#ifdef MOUSEKEY_ENABLE
 #    ifndef MOUSEKEY_MOVE_DELTA
 #        ifndef MK_KINETIC_SPEED
 #            define MOUSEKEY_MOVE_DELTA 5
@@ -59,7 +60,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #        define MOUSEKEY_ACCELERATED_SPEED 3000
 #    endif
 
-
 // mouse scroll config
 #    ifndef MOUSEKEY_WHEEL_DELAY
 #        define MOUSEKEY_WHEEL_DELAY 15
@@ -89,8 +89,24 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #    ifndef MOUSEKEY_WHEEL_DECELERATED_MOVEMENTS
 #        define MOUSEKEY_WHEEL_DECELERATED_MOVEMENTS 8
 #    endif
-
+#endif
 
 #ifndef DEBOUNCE
 #    define DEBOUNCE 5
+#endif
+
+#if defined(RGBLIGHT_ENABLE) && !defined(RGBLIGHT_LIMIT_VAL)
+#    if defined(OLED_ENABLE)
+#        define RGBLIGHT_LIMIT_VAL 100
+#    else
+#        define RGBLIGHT_LIMIT_VAL 150
+#    endif
+#endif
+
+#if !defined(OLED_BRIGHTNESS)
+#    if defined(RGBLIGHT_ENABLE) || defined(RGB_MATRIX_ENABLE)
+#        define OLED_BRIGHTNESS 80
+#    else
+#        define OLED_BRIGHTNESS 150
+#    endif
 #endif
