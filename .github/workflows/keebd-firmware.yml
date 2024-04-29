@@ -1,0 +1,74 @@
+name: "KEEBD QMK Firmware"
+
+on:
+  push:
+    branches:
+      - master
+  pull_request: {}
+
+jobs:
+  corne-default:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: d3adb5/build-qmk-fw@v1
+        with:
+          keyboard: crkbd/rev1
+          keymap: default
+          output-dir: qmk-firmware-to-be-flashed
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: built-images
+          path: qmk-firmware-to-be-flashed
+
+  corne-via:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: d3adb5/build-qmk-fw@v1
+        with:
+          keyboard: crkbd/rev1
+          keymap: via
+          output-dir: qmk-firmware-to-be-flashed
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: built-images
+          path: qmk-firmware-to-be-flashed
+
+  corne-default-helios:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: d3adb5/build-qmk-fw@v1
+        with:
+          keyboard: crkbd/rev1
+          keymap: default
+          controller: helios
+          output-dir: qmk-firmware-to-be-flashed
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: built-images
+          path: qmk-firmware-to-be-flashed
+
+  corne-via-helios:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: d3adb5/build-qmk-fw@v1
+        with:
+          keyboard: crkbd/rev1
+          keymap: via
+          controller: helios
+          output-dir: qmk-firmware-to-be-flashed
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: built-images
+          path: qmk-firmware-to-be-flashed
