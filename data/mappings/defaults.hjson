@@ -89,5 +89,6 @@
             "board": "QMK_PM2040",
             "bootloader": "rp2040",
             "processor": "RP2040"
+        }
     }
 }
